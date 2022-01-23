@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     let grid = document.getElementById('grid')
+    let keyboard = document.getElementById('keyboard')
     let wordList = [
         'white',
         'space',
@@ -14,8 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let attempts = []
     let currentAttempt = ''
+
+
     window.addEventListener('keydown',handleKeyDown)
+    buildGrid()
+    buildKeyboard()
+
+
     function handleKeyDown(e) {
+        if(e.ctrlKey || e.metaKey || e.altKey) return
         let letter = e.key
         if(letter == 'Enter') {
             //ToDo
@@ -26,14 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (letter === 'Backspace') {
             currentAttempt = currentAttempt.slice(0,currentAttempt.length - 1)
         }
-        else if (/[a-z]/.test(letter)){
+        else if (/^[a-z]$/.test(letter)){
             currentAttempt += letter
         }
         updateGrid()
     }
 
-    buildGrid()
-
+    
     function buildGrid() {
         for (let i = 0; i < 6; i++) {
             let row = document.createElement('div')
@@ -46,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.appendChild(row)
         }
     }
-
+    
     function updateGrid() {
         let row = grid.firstChild
         for(let attempt of attempts) {
@@ -87,4 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return '#b59f3b'
     }
 
+    function buildKeyboard() {
+        buildKeyboardRow('qwertyuiop')
+        buildKeyboardRow(['','a','s','d','f','g','h','j','k','l',''])
+        buildKeyboardRow(['enter','z','x','c','v','b','n','m','del'])
+    }
+
+    function buildKeyboardRow(letters) {
+        let row = document.createElement('div')
+        row.className = 'keyboard-row'
+        for(let letter of letters) {
+            let button = document.createElement('button')
+            button.textContent = letter
+            if(letter == '') button.className = 'spacer-half'
+            row.appendChild(button)
+        }
+        keyboard.appendChild(row)
+    }
 })

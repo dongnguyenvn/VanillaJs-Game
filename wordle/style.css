@@ -28,7 +28,7 @@ body {
 }
 
 #grid {
-    margin-top: 12px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     row-gap: 5px;
@@ -41,8 +41,8 @@ body {
 }
 
 #grid .cell {
-    width: 60px;
-    height: 60px;
+    width: 53px;
+    height: 53px;
     border : 1px solid #3a3a3c;
 
     font-size: 2rem;
@@ -54,38 +54,36 @@ body {
     align-items: center;
 }
 
-#keyboard-container {
-    margin-top: 10px;
-  }
   
-  .keyboard-row {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto 8px;
-    touch-action: manipulation;
-  }
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 8px;
+  touch-action: manipulation;
+} 
+
   
-  .keyboard-row button {
-    font-family: inherit;
-    font-weight: bold;
-    border: 0;
-    padding: 0;
-    height: 54px;
-    cursor: pointer;
-    background-color: rgb(129, 131, 132);
-    color: rgb(215, 218, 220);
-    flex-grow: 1;
-    text-transform: uppercase;
-    margin-right: 6px;
-    border-radius: 4px;
-    user-select: none;
-  }
+.keyboard-row button {
+  font-family: inherit;
+  font-weight: bold;
+  border: 0;
+  padding: 0;
+  height: 58px;
+  cursor: pointer;
+  background-color: rgb(129, 131, 132);
+  color: #D7DADC;
+  flex-grow: 1;
+  text-transform: uppercase;
+  margin-right: 6px;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.keyboard-row .spacer-half {
+  background-color: transparent;
+  flex-grow: 0.5;
+}
   
   .keyboard-row button.wide-button {
     flex-grow: 1.5;
-  }
-  
-  .spacer-half {
-    flex-grow: 0.5;
   }
