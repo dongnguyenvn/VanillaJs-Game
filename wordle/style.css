@@ -83,7 +83,3 @@ body {
   background-color: transparent;
   flex-grow: 0.5;
 }
-  
-  .keyboard-row button.wide-button {
-    flex-grow: 1.5;
-  }
